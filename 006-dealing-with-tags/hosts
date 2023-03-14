@@ -1,0 +1,9 @@
+[backup]
+172.173.152.44
+
+[vm1]
+20.168.242.95
+
+[all:vars]
+server1=apache2
+server2=tree

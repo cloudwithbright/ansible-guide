@@ -1,0 +1,9 @@
+# Install a basic apache webserver on ubuntu server
+---
+- name: Install webserver
+  hosts: all
+  tasks:
+    - name: install apache2
+      apt:
+        name: apache2
+        state: latest

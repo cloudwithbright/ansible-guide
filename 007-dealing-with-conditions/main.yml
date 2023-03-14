@@ -1,0 +1,25 @@
+---
+# Dealing with local variables
+- name: Install webservers
+  hosts: all
+  vars:
+    - server1: apache2
+    - server2: tree
+  tasks:
+    - name: Install {{ server1 }}
+      apt:
+        name: "{{ server1 }}"
+        state: latest
+      tags:
+        - dev
+        - stage
+      notify:
+        - apache2 installed
+      when: inventory_hostname in groups ['backup'] #Execute ansible command in backup group
+    - name: Install {{ server2 }} on ubuntu
+      apt:
+        name: "{{ server2 }}"
+        state: latest
+      tags:
+        - prod
+      when: inventory_hostname in groups ['vm1'] #Execute ansible command in vm1 group

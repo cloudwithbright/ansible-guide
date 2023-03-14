@@ -1,0 +1,18 @@
+---
+# Dealing with local variables
+- name: Install webservers
+  hosts: all
+  vars: #Define variables here
+    - server1: apache2
+    - server2: tree
+  tasks:
+    - name: Install {{ server1 }}
+      apt:
+        name: "{{ server1 }}"
+        state: latest
+      notify:
+        - apache2 installed
+    - name: Install {{ server2 }} on ubuntu
+      apt:
+        name: "{{ server2 }}"
+        state: latest

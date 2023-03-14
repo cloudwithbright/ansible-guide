@@ -1,0 +1,16 @@
+---
+#Ansible handlers
+- name: Install web application
+  hosts: all
+  tasks:
+    - name: Install apache2 on ubuntu
+      apt:
+        name: apache2
+        state: latest
+      notify:
+        - start apache2
+  handlers:
+    - name: start apache2
+      service:
+        name: started
+        state: present

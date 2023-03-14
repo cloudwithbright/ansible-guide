@@ -1,0 +1,15 @@
+---
+# Dealing with local variables
+- name: Install webservers
+  hosts: all
+  tasks:
+    - name: Install {{ server1 }}
+      apt:
+        name: "{{ server1 }}"
+        state: latest
+      notify:
+        - apache2 installed
+    - name: Install {{ server2 }} on ubuntu
+      apt:
+        name: "{{ server2 }}"
+        state: latest

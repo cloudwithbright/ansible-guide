@@ -1,0 +1,13 @@
+---
+# Configure multiple tasks in a playbook
+- name: Install apache2 and nginx
+  hosts: all
+  tasks:
+    - name: Install apache2
+      apt:
+        name: apache2
+        state: latest
+    - name: Install nginx
+      apt:
+        name: nginx
+        state: latest
