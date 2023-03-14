@@ -1,5 +1,5 @@
 ---
-# Dealing with local variables
+# Dealing with global variables
 - name: Install webservers
   hosts: all
   tasks:

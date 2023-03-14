@@ -1,5 +1,5 @@
 ---
-# Dealing with local variables
+# Dealing with tags
 - name: Install webservers
   hosts: all
   vars:

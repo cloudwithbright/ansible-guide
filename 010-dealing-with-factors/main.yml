@@ -1,0 +1,11 @@
+---
+# Dealing with facts
+- name: Install webservers
+  hosts: all
+  vars_prompt: #Define prompt here
+    - name: username
+      prompt: Enter username
+      private: no
+  tasks:
+    - debug:
+        msg: "My name is: {{ username }}"

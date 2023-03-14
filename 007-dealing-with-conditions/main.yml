@@ -1,5 +1,5 @@
 ---
-# Dealing with local variables
+# Dealing with conditions
 - name: Install webservers
   hosts: all
   vars:

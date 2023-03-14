@@ -1,0 +1,24 @@
+---
+# Dealing with prompt
+- name: Install webservers
+  hosts: all
+  vars_prompt: #Define prompt here
+    - name: username
+      prompt: Enter username
+      private: no
+  tasks:
+    - name: "Install {{ username }}"
+      apt:
+        name: "{{ username }}"
+        state: latest
+      notify:
+        - "{{ username }} installed"
+      tags:
+        - dev
+        - stage
+  handlers:
+    - name: "{{ username }} installed"
+      service:
+        name: "{{ username }}"
+        state: started
+ 

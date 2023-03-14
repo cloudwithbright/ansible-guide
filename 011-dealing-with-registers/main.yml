@@ -1,0 +1,11 @@
+---
+# Dealing with registers in ansible
+- name: Check if package is installed or not
+  hosts: all
+  tasks:
+    - name: does apache2 exists
+      command: dpkg-query -l apache2
+      register: checkapache2
+    - name: print apache2 results
+      debug:
+        var: checkapache2
